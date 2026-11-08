@@ -94,7 +94,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   .ust .sekme a{flex:1;text-align:center;padding:8px 6px;font-size:13px}
   .giris{grid-template-columns:1fr;gap:10px;padding:10px 0 40px}
   .giris h1{font-size:44px}
-  .yigin{height:300px;order:-1;margin:0 auto;width:100%;max-width:360px}
+  .yigin{height:340px;order:-1;margin:0 auto;width:100%;max-width:360px}
   .yigin img{width:180px}.yigin .c{width:190px}
   .yigin .a{left:10px;top:20px}.yigin .b{left:150px;top:6px}.yigin .c{left:70px;top:44px}
   .izgara{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px}
