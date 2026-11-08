@@ -354,9 +354,366 @@
    "tur": "not",
    "baslik": "Genel matematik 1",
    "ders": "Genel Matematik 1",
-   "aciklama": "Limit, süreklilik, türev ve uygulamaları",
+   "aciklama": "Fonksiyonlar, limit, süreklilik, türev, belirsiz integral",
    "eklendi": "2026-11-08",
-   "konular": [],
+   "konular": [
+    {
+     "t": "Fonksiyonlar",
+     "s": 3,
+     "y": 0.03,
+     "alt": [
+      {
+       "t": "Fonksiyon bileşkesi",
+       "s": 4,
+       "y": 0.311
+      },
+      {
+       "t": "Üstel ve logaritmik fonksiyonlar",
+       "s": 8,
+       "y": 0.058
+      },
+      {
+       "t": "Trigonometrik fonksiyonlar",
+       "s": 9,
+       "y": 0.03
+      },
+      {
+       "t": "Trigonometrik fonksiyon grafikleri",
+       "s": 10,
+       "y": 0.032
+      },
+      {
+       "t": "Hiperbolik fonksiyonlar",
+       "s": 14,
+       "y": 0.029
+      },
+      {
+       "t": "Parametrik fonksiyonlar",
+       "s": 17,
+       "y": 0.029
+      },
+      {
+       "t": "Mutlak değer fonksiyonu",
+       "s": 18,
+       "y": 0.031
+      },
+      {
+       "t": "Tam değer (basamak) fonksiyonu",
+       "s": 20,
+       "y": 0.473
+      }
+     ]
+    },
+    {
+     "t": "Limit",
+     "s": 23,
+     "y": 0.17,
+     "alt": [
+      {
+       "t": "İşaret fonksiyonunda limit",
+       "s": 25,
+       "y": 0.347
+      },
+      {
+       "t": "Tam değer fonksiyonunda limit",
+       "s": 25,
+       "y": 0.701
+      },
+      {
+       "t": "Limitin esas tanımı",
+       "s": 26,
+       "y": 0.027
+      },
+      {
+       "t": "L'Hospital kullanmadan çözme yöntemleri",
+       "s": 28,
+       "y": 0.284
+      },
+      {
+       "t": "Limit kuralları",
+       "s": 31,
+       "y": 0.256
+      },
+      {
+       "t": "Trigonometrik fonksiyon limitleri",
+       "s": 34,
+       "y": 0.315
+      },
+      {
+       "t": "Değişkenin sonsuza gitmesi",
+       "s": 35,
+       "y": 0.571
+      },
+      {
+       "t": "Sonsuza giden limit kuralları",
+       "s": 36,
+       "y": 0.696
+      },
+      {
+       "t": "e sayısı ile ilgili limitler",
+       "s": 39,
+       "y": 0.639
+      },
+      {
+       "t": "∞ − ∞ belirsizliği",
+       "s": 40,
+       "y": 0.869
+      }
+     ]
+    },
+    {
+     "t": "Süreklilik",
+     "s": 43,
+     "y": 0.124,
+     "alt": [
+      {
+       "t": "Bir aralık üzerinde süreklilik",
+       "s": 43,
+       "y": 0.473
+      },
+      {
+       "t": "Süreksizlik türleri",
+       "s": 46,
+       "y": 0.311
+      },
+      {
+       "t": "İşaret fonksiyonunda süreklilik",
+       "s": 47,
+       "y": 0.031
+      },
+      {
+       "t": "Tam değer fonksiyonunda süreklilik",
+       "s": 47,
+       "y": 0.571
+      },
+      {
+       "t": "Ara değer teoremiyle kök varlığı",
+       "s": 51,
+       "y": 0.535
+      },
+      {
+       "t": "Tek kökü olduğunu ispatlama",
+       "s": 52,
+       "y": 0.569
+      }
+     ]
+    },
+    {
+     "t": "Türev",
+     "s": 54,
+     "y": 0.0,
+     "alt": [
+      {
+       "t": "Tek taraflı türevler",
+       "s": 56,
+       "y": 0.028
+      },
+      {
+       "t": "Türev alma kuralları",
+       "s": 56,
+       "y": 0.793
+      },
+      {
+       "t": "Bileşke fonksiyon türevi (zincir kuralı)",
+       "s": 58,
+       "y": 0.029
+      },
+      {
+       "t": "Ters fonksiyonun türevi",
+       "s": 59,
+       "y": 0.032
+      },
+      {
+       "t": "Logaritmik fonksiyonun türevi",
+       "s": 62,
+       "y": 0.188
+      },
+      {
+       "t": "Üstel fonksiyonların türevi",
+       "s": 64,
+       "y": 0.024
+      },
+      {
+       "t": "Hiperbolik fonksiyonların türevi",
+       "s": 66,
+       "y": 0.095
+      },
+      {
+       "t": "Kapalı fonksiyonların türevi",
+       "s": 67,
+       "y": 0.028
+      },
+      {
+       "t": "Parametrik fonksiyonların türevi",
+       "s": 68,
+       "y": 0.283
+      },
+      {
+       "t": "Yüksek mertebeden türevler",
+       "s": 69,
+       "y": 0.669
+      }
+     ]
+    },
+    {
+     "t": "Türevin uygulamaları",
+     "s": 76,
+     "y": 0.63,
+     "alt": [
+      {
+       "t": "Rolle teoremi",
+       "s": 76,
+       "y": 0.63
+      },
+      {
+       "t": "Ortalama değer teoremi",
+       "s": 77,
+       "y": 0.789
+      },
+      {
+       "t": "Teğetin eğimi ve denklemi",
+       "s": 79,
+       "y": 0.031
+      },
+      {
+       "t": "Normalin eğimi ve denklemi",
+       "s": 80,
+       "y": 0.6
+      },
+      {
+       "t": "Lineer yaklaşım",
+       "s": 82,
+       "y": 0.759
+      },
+      {
+       "t": "Belirsizlikler ve L'Hospital kuralı",
+       "s": 84,
+       "y": 0.028
+      },
+      {
+       "t": "1. ve 2. türevin yorumu",
+       "s": 88,
+       "y": 0.506
+      }
+     ]
+    },
+    {
+     "t": "Asimptotlar",
+     "s": 98,
+     "y": 0.317,
+     "alt": [
+      {
+       "t": "Düşey asimptot",
+       "s": 98,
+       "y": 0.317
+      },
+      {
+       "t": "Yatay asimptot",
+       "s": 99,
+       "y": 0.379
+      },
+      {
+       "t": "Eğik ve eğri asimptotlar",
+       "s": 101,
+       "y": 0.031
+      },
+      {
+       "t": "Logaritmik fonksiyonun asimptotu",
+       "s": 107,
+       "y": 0.541
+      }
+     ]
+    },
+    {
+     "t": "Fonksiyonun grafiğini çizme",
+     "s": 109,
+     "y": 0.35
+    },
+    {
+     "t": "Belirsiz integral",
+     "s": 121,
+     "y": 0.029
+    },
+    {
+     "t": "İntegral alma yöntemleri",
+     "s": 127,
+     "y": 0.028,
+     "alt": [
+      {
+       "t": "Değişken değiştirme",
+       "s": 128,
+       "y": 0.02
+      },
+      {
+       "t": "Özel durumlar",
+       "s": 140,
+       "y": 0.016
+      },
+      {
+       "t": "√(x²−a²) içeren integraller",
+       "s": 141,
+       "y": 0.501
+      },
+      {
+       "t": "√(x²+a²) içeren integraller",
+       "s": 142,
+       "y": 0.308
+      },
+      {
+       "t": "Yarım açı metodu",
+       "s": 144,
+       "y": 0.018
+      },
+      {
+       "t": "Kısmi integrasyon",
+       "s": 146,
+       "y": 0.03
+      },
+      {
+       "t": "Kesirlere parçalama",
+       "s": 152,
+       "y": 0.018
+      }
+     ]
+    },
+    {
+     "t": "Trigonometrik integraller",
+     "s": 156,
+     "y": 0.188,
+     "alt": [
+      {
+       "t": "sin²x + cos²x = 1 ile çözülenler",
+       "s": 157,
+       "y": 0.634
+      },
+      {
+       "t": "Tanjant ve sekant",
+       "s": 159,
+       "y": 0.789
+      },
+      {
+       "t": "Kotanjant ve kosekant",
+       "s": 161,
+       "y": 0.787
+      }
+     ]
+    },
+    {
+     "t": "Ters trigonometrik dönüşümle integral",
+     "s": 164,
+     "y": 0.029
+    },
+    {
+     "t": "Değişken değiştirip kısmi integral",
+     "s": 166,
+     "y": 0.027
+    },
+    {
+     "t": "Değişken değiştirip basit kesirler",
+     "s": 168,
+     "y": 0.028
+    }
+   ],
    "sayfa": 170,
    "oran": 1.4117,
    "koyu": true,
