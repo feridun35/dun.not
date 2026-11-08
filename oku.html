@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Okuyucu · dun.not</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/oku.css">
+</head>
+<body class="okuyucu">
+<header class="oku-ust">
+  <a class="logo" href="./" aria-label="dun.not ana sayfa">dun<i>.</i>not</a>
+  <div class="yol"><a id="tur-bag" href="./">Ders notları</a><span>/</span><b id="ad">Yükleniyor</b></div>
+  <div class="bilgi" id="bilgi"></div>
+  <a class="tus kucuk" id="indir" href="#" download><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>İndir</span></a>
+</header>
+
+<button class="konu-serit" id="konu-serit" type="button" aria-controls="yan" aria-expanded="false">
+  <i class="nokta"></i><span id="konu-ad">Sayfalar</span><em>Konular ▾</em>
+</button>
+
+<div class="govde">
+  <aside class="yan" id="yan" aria-label="Gezinme">
+    <div class="sekme" role="tablist">
+      <button type="button" data-panel="konular" id="sek-konular">Konular</button>
+      <button type="button" data-panel="ara">Ara</button>
+    </div>
+    <div class="panel" id="p-konular"></div>
+    <div class="panel" id="p-ara" hidden>
+      <label class="gizli" for="ara-kutu">Bu belgede ara</label>
+      <input id="ara-kutu" class="ara-kutu" type="search" placeholder="integral, determinant…" autocomplete="off">
+      <p class="ara-not" id="ara-not"></p>
+      <div id="ara-sonuc"></div>
+    </div>
+    <div class="serit">
+      <h4><span>SAYFALAR</span><span id="serit-sayac"></span></h4>
+      <div class="serit-liste" id="serit"></div>
+    </div>
+  </aside>
+  <div class="perde" id="perde"></div>
+
+  <section class="gorunum" id="gorunum">
+    <div class="arac" id="arac">
+      <button class="tus kucuk kare" id="onceki" type="button" aria-label="Önceki sayfa"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="no"><input id="no" inputmode="numeric" aria-label="Sayfa numarası" value="1"><span id="toplam">/ 1</span></div>
+      <button class="tus kucuk kare" id="sonraki" type="button" aria-label="Sonraki sayfa"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      <span class="ayrac masaustu"></span>
+      <button class="tus kucuk kare masaustu" id="kucult" type="button" aria-label="Uzaklaştır"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button>
+      <span class="yakin masaustu" id="yakin">100%</span>
+      <button class="tus kucuk kare masaustu" id="buyut" type="button" aria-label="Yakınlaştır"><svg viewBox="0 0 24 24"><path d="M6 12h12M12 6v12"/></svg></button>
+      <button class="tus kucuk masaustu" id="sigdir" type="button">Sığdır</button>
+      <span class="ayrac masaustu"></span>
+      <button class="tus kucuk" id="ters" type="button" aria-pressed="false"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg><span id="ters-ad">Kağıt modu</span></button>
+      <button class="tus kucuk koyu" id="link" type="button"><span class="led"></span><span>Sayfa linki</span></button>
+      <button class="tus kucuk kare masaustu" id="tam" type="button" aria-label="Tam ekran"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+    </div>
+    <div class="sayfalar" id="sayfalar" tabindex="-1"></div>
+    <div class="bildirim" id="bildirim" role="status" hidden></div>
+  </section>
+</div>
+
+<script src="vendor/pdfjs/pdf.min.js"></script>
+<script src="js/oku.js"></script>
+</body>
+</html>
