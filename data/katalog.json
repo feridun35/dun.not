@@ -1148,25 +1148,6 @@
    "indir": "https://github.com/feridun35/dun.not/releases/download/notlar-v2/genel-matematik-ii-cok-degiskenli-fonksiyonlar-notlari.pdf"
   },
   {
-   "id": "edebiyat-edebiyat-notlari-ilk-taslak",
-   "tur": "not",
-   "baslik": "Edebiyat Notları (ilk taslak)",
-   "ders": "Edebiyat",
-   "donem": "Bahar",
-   "aciklama": "Önceki taslak (11 s.)",
-   "eklendi": "2026-11-09",
-   "konular": [],
-   "vitrin": false,
-   "sayfa": 11,
-   "oran": 1.4117,
-   "koyu": true,
-   "pdf": "pdf/edebiyat-edebiyat-notlari-ilk-taslak.pdf",
-   "kapak": "kapak/edebiyat-edebiyat-notlari-ilk-taslak.jpg",
-   "web_boyut": "1.6 MB",
-   "boyut": "4.7 MB",
-   "indir": "https://github.com/feridun35/dun.not/releases/download/notlar-v2/edebiyat-edebiyat-notlari-ilk-taslak.pdf"
-  },
-  {
    "id": "turk-devrim-tarihi-calisma-testi",
    "tur": "calisma",
    "baslik": "Çalışma Testi",
