@@ -29,7 +29,7 @@
     const disari = site ? ' target="_blank" rel="noopener"' : '';
     const acik = k.koyu === false || site ? ' acik-sayfa' : '';
     const yatay = site || k.oran < 1 ? ' yatay' : '';
-    return `<a class="kart${acik}${yatay}" href="${href}"${disari}>
+    return `<a class="kart${acik}${yatay}" href="${href}"${disari} data-id="${kacis(k.id)}">
       <div class="sayfa"><img src="${k.kapak}" alt="" loading="lazy"></div>
       <div class="etiket">${kacis(etiket)}</div>
       <h3>${kacis(k.baslik)}</h3>
@@ -73,6 +73,10 @@
     }
     izgara.innerHTML = html;
   }
+
+  izgara.addEventListener('click', e => {  // site kartı yeni sekmede açılır; sayaç için olay
+    const a = e.target.closest('a.kart[target]'); if (a && window.dunnotSay) window.dunnotSay('site/' + a.dataset.id, 'Site: ' + a.querySelector('h3').textContent, true);
+  });
 
   window.addEventListener('hashchange', () => {
     ciz();

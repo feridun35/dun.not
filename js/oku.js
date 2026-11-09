@@ -39,6 +39,8 @@
     $('ters').title = k.koyu ? 'Siyah zemini beyaz kağıda çevirir' : 'Beyaz sayfayı koyulaştırır';
     tersUygula(localStorage.getItem('dunnot.ters.' + (k.koyu ? 'koyu' : 'acik')) === '1');
 
+    if (window.dunnotSay) window.dunnotSay('oku/' + k.id, k.baslik);
+    ind.addEventListener('click', () => { if (window.dunnotSay) window.dunnotSay('indir/' + k.id, 'İndir: ' + k.baslik, true); });
     yanKur();
     iskelet();
 
@@ -307,7 +309,7 @@
     $('ters').setAttribute('aria-pressed', String(acik)); $('ters').classList.toggle('basili', acik);
   }
   $('link').addEventListener('click', async () => {
-    const url = `${location.origin}${location.pathname}?d=${encodeURIComponent(k.id)}#s=${simdi}`;
+    const url = `${location.origin}${location.pathname.replace(/oku\.html$/, '')}p/${encodeURIComponent(k.id)}/#s=${simdi}`; // p/<id>/ sayfası sosyal önizleme etiketlerini taşır, okuyucuya yönlendirir
     let ok = false;
     try { await navigator.clipboard.writeText(url); ok = true; } catch (e) { }
     if (!ok) { window.prompt('Bağlantıyı kopyala:', url); return; }
