@@ -5,7 +5,8 @@
   const pdfjs = window.pdfjsLib;
   pdfjs.GlobalWorkerOptions.workerSrc = 'vendor/pdfjs/pdf.worker.min.js';
 
-  const TUR = { not: ['Ders notları', 'notlar', 'El yazısı'], formul: ['Formül kağıtları', 'formul', 'Formül kağıdı'] };
+  const TUR = { not: ['Ders notları', 'notlar', 'El yazısı'], formul: ['Formül kağıtları', 'formul', 'Formül kağıdı'],
+    cikmis: ['Sorular', 'sorular', 'Çıkmış soru'], calisma: ['Sorular', 'sorular', 'Çalışma sorusu'] };
   const YAKIN = [0.5, 0.67, 0.8, 1, 1.25, 1.5, 2, 2.5, 3];
   const kap = $('sayfalar');
   const telefon = () => matchMedia('(max-width:820px)').matches;
@@ -29,9 +30,9 @@
     $('ad').textContent = k.baslik;
     const t = TUR[k.tur];
     $('tur-bag').textContent = t[0]; $('tur-bag').href = './#' + t[1];
-    $('bilgi').textContent = `${t[2]} · ${k.sayfa} s.` + (k.tur === 'not' ? ` · ${k.boyut} orijinal` : '');
+    $('bilgi').textContent = `${t[2]} · ${k.sayfa} s.` + (/releases/.test(k.indir) ? ` · ${k.boyut} orijinal` : '');
     const ind = $('indir'); ind.href = k.indir;
-    ind.querySelector('span').textContent = k.tur === 'not' ? `İndir · ${k.boyut}` : 'İndir';
+    ind.querySelector('span').textContent = /releases/.test(k.indir) ? `İndir · ${k.boyut}` : 'İndir';
     document.documentElement.style.setProperty('--oran-ters', `1 / ${k.oran}`);
     $('toplam').textContent = '/ ' + k.sayfa;
     $('ters-ad').textContent = k.koyu ? 'Kağıt modu' : 'Gece modu';

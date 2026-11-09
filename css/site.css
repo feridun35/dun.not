@@ -63,6 +63,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bant{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--cizgi);padding-top:18px;margin-bottom:24px}
 .bant h2{font:600 22px var(--sans);font-stretch:90%}
 .bant span{font:400 13px var(--mono);color:var(--soluk)}
+.kat{display:flex;flex-wrap:wrap;gap:8px;margin:-6px 0 28px}
+.kat a{display:inline-flex;align-items:center;gap:8px;font:500 14px var(--sans);padding:8px 14px;border-radius:8px;text-decoration:none;color:var(--ikincil);
+  background:var(--kagit-2);box-shadow:inset 0 1px 2px rgba(60,45,20,.18)}
+.kat a:hover{color:var(--murekkep)}
+.kat a b{font:400 11px var(--mono);color:var(--soluk)}
+.kat a.acik{background:var(--yuzey);color:var(--murekkep);box-shadow:0 1px 0 #fff inset,0 1px 2px rgba(60,45,20,.25)}
+.grup{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;font:600 20px var(--sans);font-stretch:90%;padding-top:10px;border-bottom:1px solid var(--cizgi-2);padding-bottom:8px}
+.grup:first-child{padding-top:0}
+.grup span{font:400 12px var(--mono);color:var(--soluk)}
 .izgara{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 28px;padding-bottom:72px}
 .kart{text-decoration:none;display:block}
 .kart .sayfa{aspect-ratio:3/4;overflow:hidden;border-radius:4px;background:#111;box-shadow:var(--golge-kagit);transition:transform .25s cubic-bezier(.2,.7,.2,1)}
@@ -91,7 +100,8 @@ button{font:inherit;color:inherit;cursor:pointer}
   .ust .sag{display:contents}
   .ust .gh{margin-left:auto;width:40px;height:40px}
   .ust .sekme{flex:1 1 100%;min-width:0;overflow-x:auto}
-  .ust .sekme a{flex:1;text-align:center;padding:8px 6px;font-size:13px}
+  .ust .sekme{gap:2px;padding:4px}
+  .ust .sekme a{flex:1 1 auto;text-align:center;padding:8px 5px;font-size:12.5px;white-space:nowrap}
   .giris{grid-template-columns:1fr;gap:10px;padding:10px 0 40px}
   .giris h1{font-size:44px}
   .yigin{height:340px;order:-1;margin:0 auto;width:100%;max-width:360px}
@@ -101,3 +111,5 @@ button{font:inherit;color:inherit;cursor:pointer}
   .kart h3{font-size:16px}
   .alt{grid-template-columns:1fr}.alt .baglar{align-items:flex-start}
 }
+
+@media (max-width:380px){.ust .sekme a{padding:8px 3px;font-size:11.5px}}
