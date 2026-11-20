@@ -95,3 +95,18 @@ body.ters .syf img{filter:invert(1) hue-rotate(180deg) blur(1.5px)}
   #ters-ad{display:none}
   .bildirim{left:12px;right:12px;bottom:84px}
 }
+
+/* hesap ve yorumlar */
+#indir.kilitli{color:var(--soluk)}
+.yorum{padding:10px;border-radius:8px;background:rgba(255,255,255,.3);margin-bottom:8px;font-size:14px}
+.yorum.bekliyor{background:none;box-shadow:inset 0 0 0 1px var(--cizgi-2)}
+.yorum-ust{display:flex;align-items:baseline;gap:8px}
+.yorum-ust b{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.yorum time{margin-left:auto;font:400 11px var(--mono);color:var(--soluk);white-space:nowrap}
+.yorum em{display:block;font:normal 400 11px var(--mono);color:var(--led-yazi);margin-top:2px}
+.yorum p{margin-top:4px;color:var(--ikincil);line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere}
+.yorum-form{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--cizgi)}
+.yorum-form textarea{height:auto;padding:9px 12px;resize:vertical;line-height:1.4}
+.yorum-form .tus{align-self:flex-start}
+.yorum-form small{font-size:12px;color:var(--soluk)}
+.yorum-not{font-size:11px;line-height:1.45;color:var(--soluk);margin-top:12px}

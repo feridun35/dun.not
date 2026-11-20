@@ -16,7 +16,9 @@ etkileşimli siteler. Hepsi ücretsiz, hepsi tarayıcıda açılır.
 - Konu haritası: notlardaki başlıklardan çıkarıldı, konuya tıklayınca o sayfaya gider.
 - Kağıt modu: siyah zeminli taramaları beyaz kağıt üstüne koyu yazıya çevirir.
 - Sayfa linki: `oku.html?d=matematik-2#s=34` gibi, doğrudan o sayfayı açar.
-- Kaldığın yer tarayıcıda saklanır; hesap, çerez ya da sunucu yok.
+- Kaldığın yer tarayıcıda saklanır.
+- İsteğe bağlı Google girişi (Firebase): PDF indirme ve yorum için. Yorumlar site sahibi onaylayınca görünür;
+  yayındaki yorumda yalnız takma ad ve metin durur. Kurallar `firestore.rules`, onay ekranı `onay.html`.
 
 ## Lisans
 

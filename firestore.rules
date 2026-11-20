@@ -1,0 +1,50 @@
+rules_version = '2';
+// dun.not Firestore kuralları. Firebase konsolu > Firestore > Rules'a yapıştırılıp yayınlanır.
+// yorumlar: herkese açık, onaylı yorumlar (uid yok). bekleyen: onay sırası. engel: yorum yazamayanlar.
+// sayac: kişi başı günlük yorum sayısı (UTC günü). Her yorum sayacı aynı yazımda 1 artırır, kimliği uid_gün_sıra olur.
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function yonetici() { return request.auth != null && request.auth.uid == 'gjwJo2f6tHO0tS1sUk4Yp8JlBvd2'; }
+    function girdi() { return request.auth != null; }
+    function metin(s, en, cok) { return s is string && s.size() >= en && s.size() <= cok; }
+    function bugun() { return request.time.year() * 10000 + request.time.month() * 100 + request.time.day(); }
+    function sayac() { return /databases/$(db)/documents/sayac/$(request.auth.uid); }
+
+    match /yorumlar/{id} {
+      allow read: if true;
+      allow create, delete: if yonetici();
+    }
+
+    match /bekleyen/{id} {
+      allow read: if yonetici() || (girdi() && resource.data.uid == request.auth.uid);
+      allow delete: if yonetici();
+      allow create: if girdi()
+        && !exists(/databases/$(db)/documents/engel/$(request.auth.uid))
+        && request.resource.data.keys().hasOnly(['belge', 'ad', 'metin', 'uid', 'zaman'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.zaman == request.time
+        && metin(request.resource.data.belge, 1, 120)
+        && metin(request.resource.data.ad, 2, 24)
+        && metin(request.resource.data.metin, 1, 1000)
+        // günlük sınır: sayaç bu yazımda değişmiş olmalı ve kimlik yeni sayaç değerine bağlı (aynı yazımda tek yorum)
+        && (!exists(sayac()) || get(sayac()).data != getAfter(sayac()).data)
+        && id == request.auth.uid + '_' + string(getAfter(sayac()).data.gun) + '_' + string(getAfter(sayac()).data.adet);
+    }
+
+    match /sayac/{uid} {
+      allow read: if girdi() && request.auth.uid == uid;
+      allow create: if girdi() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['gun', 'adet'])
+        && request.resource.data.gun == bugun() && request.resource.data.adet == 1;
+      allow update: if girdi() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['gun', 'adet'])
+        && request.resource.data.gun == bugun()
+        && request.resource.data.adet == (resource.data.gun == bugun() ? resource.data.adet + 1 : 1)
+        && request.resource.data.adet <= 3;
+    }
+
+    match /engel/{uid} {
+      allow read, write: if yonetici();
+    }
+  }
+}

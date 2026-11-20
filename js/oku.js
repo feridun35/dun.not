@@ -227,7 +227,7 @@
 
   function sekmeAc(ad) {
     document.querySelectorAll('.yan .sekme button').forEach(b => b.classList.toggle('acik', b.dataset.panel === ad));
-    $('p-konular').hidden = ad !== 'konular'; $('p-ara').hidden = ad !== 'ara';
+    document.querySelectorAll('.yan .panel').forEach(p => { p.hidden = p.id !== 'p-' + ad; });
     if (ad === 'ara') setTimeout(() => $('ara-kutu').focus(), 50);
   }
 
