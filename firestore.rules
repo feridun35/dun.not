@@ -43,6 +43,20 @@ service cloud.firestore {
         && request.resource.data.adet <= 3;
     }
 
+    // Sayaçlar: herkes yalnız 1 artırabilir, yalnız yönetici okur/siler. Kişisel veri yok.
+    match /istatistik/{id} {
+      allow read, delete: if yonetici();
+      allow create: if id.matches('[a-z0-9_-]{1,130}')
+        && request.resource.data.keys().hasOnly(['n']) && request.resource.data.n == 1;
+      allow update: if request.resource.data.keys().hasOnly(['n']) && request.resource.data.n == resource.data.n + 1;
+    }
+
+    // Giriş yapan kişi sayısı: kimlik başına boş kayıt.
+    match /uyeler/{uid} {
+      allow read: if yonetici();
+      allow create, update: if girdi() && request.auth.uid == uid && request.resource.data.size() == 0;
+    }
+
     match /engel/{uid} {
       allow read, write: if yonetici();
     }

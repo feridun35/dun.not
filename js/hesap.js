@@ -8,7 +8,7 @@ const AD = 'dunnot.takmaad';
 const GUNLUK = 3; // firestore.rules ile aynı olmalı
 const KILIT = '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>';
 const OK = '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>';
-let yorumAcik = false;
+let yorumAcik = false, izin = false, sayim = 0;
 
 function bildir(baslik, metin) {
   const b = $('bildirim');
@@ -26,14 +26,29 @@ const hesap = $('hesap');
 hesap.hidden = false;
 hesap.addEventListener('click', () => auth.currentUser ? cikis() : giris());
 
-// İndir kilidi: girişsiz tıklama önce girişi açar, giriş olunca indirmeyi sürdürür.
+// İndir: girişsiz tıklama önce girişi açar; sonra kullanım şartları 5 sn gösterilir, İndir tuşu öyle açılır.
 // shortcut: yalnız tuş kilidi; PDF okuyucu için zaten herkese açık. Gerçek kilit gerekirse PDF'ler public repodan çıkmalı.
 document.addEventListener('click', async e => {
   const a = e.target.closest('#indir');
-  if (!a || auth.currentUser) return;
+  if (!a || izin) return;
   e.preventDefault(); e.stopPropagation();
-  if (await giris()) a.click();
+  if (!auth.currentUser && !(await giris())) return;
+  sartlar();
 }, true);
+
+const pencere = $('indir-pencere'), tamam = $('indir-tamam');
+function sartlar() {
+  let s = 5;
+  const yaz = () => { tamam.querySelector('span:last-child').textContent = s ? `İndir (${s})` : 'İndir'; tamam.disabled = s > 0; };
+  yaz(); pencere.showModal();
+  clearInterval(sayim); sayim = setInterval(() => { s--; yaz(); if (!s) clearInterval(sayim); }, 1000);
+}
+$('indir-vazgec').onclick = () => { clearInterval(sayim); pencere.close(); };
+tamam.onclick = () => {
+  pencere.close();
+  if (window.dunnotSay) window.dunnotSay('indir/' + belge, '', true);
+  izin = true; $('indir').click(); izin = false;
+};
 
 // Yorumlar sekmesi ilk açılışta yüklenir.
 document.querySelector('.yan .sekme [data-panel="yorumlar"]').addEventListener('click', () => { if (!yorumAcik) { yorumAcik = true; yukle(); } });

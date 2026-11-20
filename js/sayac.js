@@ -1,25 +1,24 @@
-// dun.not ziyaretçi sayacı: GoatCounter (çerezsiz, kişisel veri tutmaz). KOD boşsa hiçbir şey yüklenmez.
-// Kod: goatcounter.com'da açılan site adı (kod.goatcounter.com). Aşağıya yaz, commit et.
+// dun.not sayacı: çerez yok, kişisel veri yok. Firestore'da (istatistik/*) yalnız toplam sayılar tutulur:
+// sayfa açılışı (ana, oku_<id>, siteler_<id>), olay (indir_<id>, site_<id>) ve günlük toplam (gun_YYYYMMDD, Türkiye günü).
+// Do Not Track açıksa ve yöneticinin tarayıcısında saymaz.
 (function () {
   'use strict';
-  var KOD = '';
+  var ADRES = 'https://firestore.googleapis.com/v1/projects/dunnot/databases/(default)/documents:commit?key=AIzaSyBJ-825UO1-GPWwBUK7m__EU-B985az7kc';
+  var KOK = 'projects/dunnot/databases/(default)/documents/istatistik/';
   window.dunnotSay = function () {};
-  if (!KOD || navigator.doNotTrack === '1') return;
-  var tabani = location.pathname.replace(/(siteler\/[^/]+\/|oku\.html|p\/[^/]+\/|index\.html)?$/, '');
-  var bekleyen = [];
+  if (navigator.doNotTrack === '1' || localStorage.getItem('dunnot.yonetici') === '1') return;
+
+  function art(id) { return { transform: { document: KOK + id, fieldTransforms: [{ fieldPath: 'n', increment: { integerValue: '1' } }] } }; }
   window.dunnotSay = function (yol, baslik, olay) {
-    var o = { path: yol, title: baslik || yol, event: !!olay };
-    if (window.goatcounter && window.goatcounter.count) window.goatcounter.count(o); else bekleyen.push(o);
+    var id = String(yol).toLowerCase().replace(/[^a-z0-9-]+/g, '_').slice(0, 120);
+    var w = [art(id)];
+    if (!olay) w.push(art('gun_' + new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Istanbul' }).replace(/-/g, '')));
+    fetch(ADRES, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ writes: w }) }).catch(function () {});
   };
-  var s = document.createElement('script');
-  s.async = true; s.src = 'https://gc.zgo.at/count.js';
-  s.setAttribute('data-goatcounter', 'https://' + KOD + '.goatcounter.com/count');
-  s.setAttribute('data-goatcounter-settings', JSON.stringify({ no_onload: true }));
-  s.onload = function () { bekleyen.splice(0).forEach(function (o) { window.goatcounter.count(o); }); };
-  document.head.appendChild(s);
-  // Okuyucu kendi sayfa adını (belge kimliği) bildirir; diğer sayfalar kendiliğinden sayılır.
+
+  // Okuyucu kendi sayfasını (oku/<id>) bildirir; burada yalnız ana sayfa ve ders siteleri sayılır.
   if (!document.body || !document.body.classList.contains('okuyucu')) {
-    var yol = location.pathname.slice(tabani.length) || 'ana';
-    window.dunnotSay(yol.replace(/\/$/, '') || 'ana', document.title);
+    var m = location.pathname.match(/siteler\/([^/]+)/);
+    window.dunnotSay(m ? 'siteler/' + m[1] : 'ana');
   }
 })();

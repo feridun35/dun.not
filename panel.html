@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Panel · dun.not</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=3">
+<style>
+  main{max-width:980px;margin:0 auto;padding:28px 20px 80px}
+  .ust-p{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .ust-p h1{font:600 22px var(--sans);margin-right:auto}
+  #kim{font:400 12px var(--mono);color:var(--soluk)}
+  h2{font:600 18px var(--sans);margin:34px 0 12px;border-top:1px solid var(--cizgi);padding-top:18px;display:flex;align-items:baseline;gap:10px}
+  h2 small{font:400 12px var(--mono);color:var(--soluk)}
+  .kutular{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:22px}
+  .kutu{background:var(--yuzey);border-radius:10px;padding:12px 14px;box-shadow:0 0 0 1px var(--cizgi-2)}
+  .kutu b{display:block;font:600 26px var(--sans);font-stretch:90%}
+  .kutu span{font:400 11px var(--mono);color:var(--soluk);text-transform:uppercase;letter-spacing:.04em}
+  .kutu a{display:block;margin-top:2px;font-size:12px;color:var(--soluk)}
+  .gunler{display:grid;gap:4px}
+  .gun{display:grid;grid-template-columns:70px 1fr 48px;align-items:center;gap:10px;font:400 12px var(--mono);color:var(--soluk)}
+  .gun i{height:10px;border-radius:3px;background:var(--murekkep);min-width:2px}
+  .gun b{color:var(--murekkep);font-weight:500;text-align:right}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{font:500 11px var(--mono);color:var(--soluk);text-transform:uppercase;text-align:right;padding:6px 8px;border-bottom:1px solid var(--cizgi)}
+  th:first-child,td:first-child{text-align:left}
+  td{padding:7px 8px;border-bottom:1px solid var(--cizgi-2);text-align:right;font-variant-numeric:tabular-nums}
+  td small{display:block;font:400 11px var(--mono);color:var(--soluk)}
+  .tablo{overflow-x:auto}
+  .y{background:var(--yuzey);border-radius:10px;padding:12px 14px;margin-bottom:10px;box-shadow:0 0 0 1px var(--cizgi-2)}
+  .y .ust{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:14px}
+  .y .ust a,.y .ust span{font:400 12px var(--mono);color:var(--soluk)}
+  .y p{margin:6px 0 10px;white-space:pre-wrap;overflow-wrap:anywhere}
+  .y .tuslar{margin:0;gap:8px}
+  .bos{color:var(--soluk);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+  <div class="ust-p">
+    <a class="logo" href="./">dun<i>.</i>not</a>
+    <h1>Panel</h1>
+    <span id="kim"></span>
+    <button class="tus kucuk koyu" id="giris" type="button" hidden><span class="led"></span>Google ile giriş yap</button>
+  </div>
+  <div id="icerik"></div>
+</main>
+<script type="module" src="js/panel.js"></script>
+</body>
+</html>

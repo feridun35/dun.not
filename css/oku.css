@@ -110,3 +110,16 @@ body.ters .syf img{filter:invert(1) hue-rotate(180deg) blur(1.5px)}
 .yorum-form .tus{align-self:flex-start}
 .yorum-form small{font-size:12px;color:var(--soluk)}
 .yorum-not{font-size:11px;line-height:1.45;color:var(--soluk);margin-top:12px}
+
+/* indirme şartları penceresi */
+.indir-pencere{margin:auto;max-width:420px;width:calc(100% - 32px);border:0;border-radius:14px;padding:22px 22px 18px;background:var(--yuzey);color:var(--murekkep);
+  box-shadow:0 0 0 1px #D3C8AF,0 30px 60px -20px rgba(40,30,15,.6)}
+.indir-pencere::backdrop{background:rgba(32,36,40,.45)}
+.indir-pencere h2{font:600 19px var(--sans);margin-bottom:12px}
+.indir-pencere ul{list-style:none;display:grid;gap:9px;font-size:15px;line-height:1.45;color:var(--ikincil)}
+.indir-pencere li{padding-left:16px;position:relative}
+.indir-pencere li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--led)}
+.indir-pencere b{color:var(--murekkep)}
+.indir-pencere .lisans{font:400 12px var(--mono);color:var(--soluk);margin-top:14px}
+.pencere-tus{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}
+.pencere-tus .tus:disabled{opacity:.55;cursor:default}

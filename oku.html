@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=2">
-<link rel="stylesheet" href="css/oku.css?v=2">
+<link rel="stylesheet" href="css/site.css?v=3">
+<link rel="stylesheet" href="css/oku.css?v=3">
 </head>
 <body class="okuyucu">
 <header class="oku-ust">
@@ -72,6 +72,17 @@
     <div class="bildirim" id="bildirim" role="status" hidden></div>
   </section>
 </div>
+
+<dialog class="indir-pencere" id="indir-pencere" aria-labelledby="indir-baslik">
+  <h2 id="indir-baslik">İndirmeden önce</h2>
+  <ul>
+    <li><b>Kendin için</b> indirip çıktı alabilirsin.</li>
+    <li><b>Ücretsiz paylaşabilirsin</b>; kaynak olarak dun.not'u göster.</li>
+    <li><b>Satamazsın.</b> Parayla çoğaltamaz, kendi eserin gibi yayımlayamazsın.</li>
+  </ul>
+  <p class="lisans">Lisans: <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.tr" target="_blank" rel="noopener">CC BY-NC 4.0</a> · Feridun Oktar</p>
+  <div class="pencere-tus"><button class="tus kucuk" type="button" id="indir-vazgec" autofocus>Vazgeç</button><button class="tus kucuk koyu" type="button" id="indir-tamam" disabled><span class="led"></span><span>İndir (5)</span></button></div>
+</dialog>
 
 <script src="vendor/pdfjs/pdf.min.js"></script>
 <script src="js/sayac.js"></script>

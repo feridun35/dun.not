@@ -40,7 +40,6 @@
     tersUygula(localStorage.getItem('dunnot.ters.' + (k.koyu ? 'koyu' : 'acik')) === '1');
 
     if (window.dunnotSay) window.dunnotSay('oku/' + k.id, k.baslik);
-    ind.addEventListener('click', () => { if (window.dunnotSay) window.dunnotSay('indir/' + k.id, 'İndir: ' + k.baslik, true); });
     yanKur();
     iskelet();
 
